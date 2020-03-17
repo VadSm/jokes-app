@@ -1,8 +1,10 @@
 import React from 'react';
 
+import JokeContainer from 'components/JokeContainer';
+
 const App = () => (
   <div className="App">
-    Test app
+    <JokeContainer />
   </div>
 );
 
