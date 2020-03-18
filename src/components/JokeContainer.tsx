@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Joke from 'components/Joke';
+import Wrapper from 'components/Wrapper';
+import JokeCard, { IJokeData } from 'components/JokeCard';
 
 const JokeContainer = () => {
-  const [jokeData, setJoke] = useState({});
+  const [jokeData, setJoke] = useState<IJokeData | null>(null);
 
   useEffect(() => {
     axios.get('https://sv443.net/jokeapi/v2/joke/Dark')
@@ -13,7 +14,9 @@ const JokeContainer = () => {
   }, []);
 
   return (
-    <Joke jokeData={jokeData} />
+    <Wrapper className="joke-wrapper">
+      {jokeData && <JokeCard jokeData={jokeData} />}
+    </Wrapper>
   );
 };
 
