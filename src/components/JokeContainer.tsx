@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Wrapper from 'components/Wrapper';
+import Button from 'components/ui/Button';
+import Wrapper from 'components/ui/Wrapper';
 import JokeCard, { IJokeData } from 'components/JokeCard';
 
 const JokeContainer = () => {
@@ -16,6 +17,7 @@ const JokeContainer = () => {
   return (
     <Wrapper className="joke-wrapper">
       {jokeData && <JokeCard jokeData={jokeData} />}
+      <Button onClick={() => console.log('test12345')}>One more</Button>
     </Wrapper>
   );
 };

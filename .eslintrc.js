@@ -28,21 +28,7 @@ module.exports = {
     "react/jsx-fragments": 0,
     "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
     "no-shadow": 0,
-    "@typescript-eslint/explicit-function-return-type": 0
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/interface-name-prefix": 0
   },
-  // overrides: [
-  //   {
-  //     "files": ["*.ts", "*.tsx"],
-  //     "rules": {
-  //       "@typescript-eslint/explicit-function-return-type": [
-  //         "error",
-  //         {
-  //           "allowExpressions": true,
-  //           "allowTypedFunctionExpressions": true,
-  //           "allowHigherOrderFunctions": true,
-  //         }
-  //       ]
-  //     }
-  //   }
-  // ]
 };

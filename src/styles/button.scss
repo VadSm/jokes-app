@@ -1,0 +1,30 @@
+.custom-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: ($spacing * 10);
+  padding: $spacing ($spacing * 2);
+  background-color: $accent-color;
+  color: $secondary-color;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 20px;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px lighten($accent-color, 10%);
+  }
+
+  &[disabled] {
+    color: transparentize($secondary-color, .7);
+    background-color: transparentize($accent-color, .7);
+    cursor: not-allowed;
+  }
+}
