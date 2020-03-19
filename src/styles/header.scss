@@ -1,0 +1,20 @@
+.custom-header {
+  padding: ($spacing * 2) 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    .header-icon {
+      width: ($spacing * 6);
+      height: ($spacing * 6);
+    }
+
+    span {
+      color: $secondary-color;
+      font-weight: 900;
+      font-size: 48px;
+      margin-left: ($spacing * 2);
+    }
+  }
+}
