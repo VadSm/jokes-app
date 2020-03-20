@@ -8,11 +8,15 @@ import JokeCard, { IJokeData } from 'components/JokeCard';
 
 const JokeContainer = () => {
   const [jokeData, setJoke] = useState<IJokeData | null>(null);
+  const [isLoading, setLoading] = useState(false);
 
   const getJoke = () => {
+    setLoading(true);
+
     axios.get('https://sv443.net/jokeapi/v2/joke/Any')
       .then(({ data }) => setJoke(data))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -23,7 +27,7 @@ const JokeContainer = () => {
     <>
       <Header />
       <Wrapper className="joke-wrapper">
-        {jokeData && <JokeCard jokeData={jokeData} />}
+        {jokeData && <JokeCard jokeData={jokeData} loading={isLoading} />}
         <Button onClick={getJoke}>One more</Button>
       </Wrapper>
     </>

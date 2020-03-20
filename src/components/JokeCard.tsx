@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Icon from 'components/ui/Icon';
+import LoadingSkeleton from 'components/ui/LoadingSkeleton';
 
 export interface IJokeData {
   type: string;
@@ -12,6 +13,7 @@ export interface IJokeData {
 
 interface IProps {
   jokeData: IJokeData;
+  loading: boolean;
 }
 
 const iconTypes: Record<string, string> = {
@@ -24,15 +26,26 @@ const JokeCard = ({
   jokeData: {
     category, type, setup, delivery, joke,
   },
+  loading,
 }: IProps) => (
   <div className="joke-card">
-    <Icon className="joke-type-icon" iconPath={iconTypes[category]} title={category} />
-    {type === 'twopart' ? (
+    {loading ? (
+      <LoadingSkeleton />
+    ) : (
       <>
-        <p>{setup}</p>
-        <p>{delivery}</p>
+        <Icon
+          className="joke-type-icon"
+          iconPath={iconTypes[category]}
+          title={category}
+        />
+        {type === 'twopart' ? (
+          <>
+            <p>{setup}</p>
+            <p>{delivery}</p>
+          </>
+        ) : <p>{joke}</p>}
       </>
-    ) : <p>{joke}</p>}
+    )}
   </div>
 );
 

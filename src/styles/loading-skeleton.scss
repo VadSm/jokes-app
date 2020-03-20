@@ -1,0 +1,40 @@
+@mixin background-gradient {
+  background-image: linear-gradient(90deg, #ddd 0px,  #e8e8e8 40px, #ddd 140px);
+  background-size: 1000px;
+}
+  
+.loading-skeleton {
+  div {
+    display: inline-block;
+    width: 100%;
+    height: ($spacing * 4);
+    background-color: darken($secondary-color, 20%);
+    border-radius: 10px;
+
+    @include background-gradient;
+    animation: loading-gradient 1.6s infinite linear;
+
+    &:first-child {
+      width: 70%;
+    }
+
+    &:last-child {
+      width: 50%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: ($spacing * 2);
+    }
+  }
+}
+
+@keyframes loading-gradient {
+  40% {
+    background-position: 600px;
+  }
+
+  100% {
+    background-position: 1000px;
+  }
+}
+  

@@ -11,6 +11,8 @@
   color: $primary-text;
   font-size: ($spacing * 4);
   font-weight: 600;
+  transition: .3s ease-in-out;
+  max-height: 500px;
 
   .joke-type-icon {
     position: absolute;
@@ -24,5 +26,10 @@
 .joke-wrapper {
   .joke-card {
     margin-top: 100px;
+    max-height: 500px;
+  }
+
+  .custom-button {
+    margin: ($spacing * 2) auto 0 auto;
   }
 }
