@@ -3,9 +3,15 @@ import React from 'react';
 import Icon from 'components/ui/Icon';
 import LoadingSkeleton from 'components/ui/LoadingSkeleton';
 
+const iconTypesData = {
+  Miscellaneous: '/icons/monkey.png',
+  Programming: '/icons/programmer.png',
+  Dark: '/icons/devil.png',
+};
+
 export interface IJokeData {
   type: string;
-  category: string;
+  category: keyof typeof iconTypesData;
   setup?: string;
   delivery?: string;
   joke?: string;
@@ -16,18 +22,12 @@ interface IProps {
   loading: boolean;
 }
 
-const iconTypes: Record<string, string> = {
-  Miscellaneous: '/icons/monkey.png',
-  Programming: '/icons/programmer.png',
-  Dark: '/icons/devil.png',
-};
-
-const JokeCard = ({
+const JokeCard: React.FC<IProps> = ({
   jokeData: {
     category, type, setup, delivery, joke,
   },
   loading,
-}: IProps) => (
+}) => (
   <div className="joke-card">
     {loading ? (
       <LoadingSkeleton />
@@ -35,7 +35,7 @@ const JokeCard = ({
       <>
         <Icon
           className="joke-type-icon"
-          iconPath={iconTypes[category]}
+          iconPath={iconTypesData[category]}
           title={category}
         />
         {type === 'twopart' ? (
