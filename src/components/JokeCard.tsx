@@ -1,21 +1,16 @@
 import React from 'react';
+// import { useSelecstor } from 'react-redux';
 
 import Icon from 'components/ui/Icon';
 import LoadingSkeleton from 'components/ui/LoadingSkeleton';
+
+import { IJokeData } from 'types';
 
 const iconTypesData = {
   Miscellaneous: '/icons/monkey.png',
   Programming: '/icons/programmer.png',
   Dark: '/icons/devil.png',
 };
-
-export interface IJokeData {
-  type: string;
-  category: keyof typeof iconTypesData;
-  setup?: string;
-  delivery?: string;
-  joke?: string;
-}
 
 interface IProps {
   jokeData: IJokeData;
@@ -27,26 +22,31 @@ const JokeCard: React.FC<IProps> = ({
     category, type, setup, delivery, joke,
   },
   loading,
-}) => (
-  <div className="joke-card">
-    {loading ? (
-      <LoadingSkeleton />
-    ) : (
-      <>
-        <Icon
-          className="joke-type-icon"
-          iconPath={iconTypesData[category]}
-          title={category}
-        />
-        {type === 'twopart' ? (
-          <>
-            <p>{setup}</p>
-            <p>{delivery}</p>
-          </>
-        ) : <p>{joke}</p>}
-      </>
-    )}
-  </div>
-);
+}) => {
+  // const jokes = useSelector(store => store.jokes);
+  // console.log(jokes);
+
+  return (
+    <div className="joke-card">
+      {loading ? (
+        <LoadingSkeleton />
+      ) : (
+        <>
+          <Icon
+            className="joke-type-icon"
+            iconPath={iconTypesData[category]}
+            title={category}
+          />
+          {type === 'twopart' ? (
+            <>
+              <p>{setup}</p>
+              <p>{delivery}</p>
+            </>
+          ) : <p>{joke}</p>}
+        </>
+      )}
+    </div>
+  );
+};
 
 export default JokeCard;
