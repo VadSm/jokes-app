@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getJokeData, getLoadingStatus } from 'store/selectors/jokes';
 import getJokeRequest from 'store/thunks/jokes';
@@ -17,12 +17,16 @@ const JokeContainer = () => {
     dispatch(getJokeRequest());
   }, [dispatch]);
 
+  const handleClick = useCallback(() => {
+    dispatch(getJokeRequest());
+  }, [dispatch]);
+
   return (
     <>
       <Header />
       <Wrapper className="joke-wrapper">
         <JokeCard jokeData={jokeData} isLoading={isLoading} />
-        {/* <Button onClick={getJoke}>One more</Button> */}
+        <Button onClick={handleClick}>One more</Button>
       </Wrapper>
     </>
   );
