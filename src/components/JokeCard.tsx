@@ -1,21 +1,18 @@
 import React from 'react';
-// import { useSelecstor } from 'react-redux';
-
+import { IJokeData } from 'types/joke-card';
 import Icon from 'components/ui/Icon';
 import LoadingSkeleton from 'components/ui/LoadingSkeleton';
 
-import { IJokeData } from 'types';
+interface IProps {
+  jokeData: IJokeData;
+  loading: boolean;
+}
 
 const iconTypesData = {
   Miscellaneous: '/icons/monkey.png',
   Programming: '/icons/programmer.png',
   Dark: '/icons/devil.png',
 };
-
-interface IProps {
-  jokeData: IJokeData;
-  loading: boolean;
-}
 
 const JokeCard: React.FC<IProps> = ({
   jokeData: {

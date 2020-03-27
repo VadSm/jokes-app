@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { IJokeData } from 'types';
+import { IJokeData } from 'types/joke-card';
 import Header from 'components/ui/Header';
 import Button from 'components/ui/Button';
 import Wrapper from 'components/ui/Wrapper';

@@ -1,11 +1,12 @@
-import {
-  SET_JOKE_DATA,
-  SET_LOADING,
-  JokesState,
-  JokesActionTypes,
-} from './types';
+import { IJokeData } from 'types/joke-card';
+import { SET_JOKE_DATA, SET_LOADING, JokesActionTypes } from 'store/actions/jokes';
 
-const initialState: JokesState = {
+interface IJokesState {
+  jokeData: IJokeData | null;
+  isLoading: boolean;
+}
+
+const initialState: IJokesState = {
   jokeData: null,
   isLoading: false,
 };
@@ -26,13 +27,3 @@ export default (state = initialState, { type, payload }: JokesActionTypes) => {
       return state;
   }
 };
-
-export const setJokeData = (payload: any) => ({
-  type: SET_JOKE_DATA,
-  payload,
-});
-
-export const setLoading = (payload: boolean) => ({
-  type: SET_LOADING,
-  payload,
-});

@@ -7,8 +7,7 @@ import {
 } from 'redux';
 // import thunk from 'redux-thunk';
 
-import jokes from './jokes';
-// import filters from './reducers/filters';
+import jokes from 'store/reducers/jokes';
 
 const rootReducer = combineReducers({
   jokes,
