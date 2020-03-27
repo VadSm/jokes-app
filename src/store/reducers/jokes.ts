@@ -1,7 +1,7 @@
 import { IJokeData } from 'types/joke-card';
 import { SET_JOKE_DATA, SET_LOADING, JokesActionTypes } from 'store/actions/jokes';
 
-interface IJokesState {
+export interface IJokesState {
   jokeData: IJokeData | null;
   isLoading: boolean;
 }

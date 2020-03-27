@@ -1,35 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getJokeData, getLoadingStatus } from 'store/selectors/jokes';
+import getJokeRequest from 'store/thunks/jokes';
 
-import { IJokeData } from 'types/joke-card';
 import Header from 'components/ui/Header';
 import Button from 'components/ui/Button';
 import Wrapper from 'components/ui/Wrapper';
 import JokeCard from 'components/JokeCard';
 
 const JokeContainer = () => {
-  const [jokeData, setJoke] = useState<IJokeData | null>(null);
-  const [isLoading, setLoading] = useState(false);
-
-  const getJoke = () => {
-    setLoading(true);
-
-    axios.get('https://sv443.net/jokeapi/v2/joke/Any')
-      .then(({ data }) => setJoke(data))
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false));
-  };
+  const dispatch = useDispatch();
+  const jokeData = useSelector(getJokeData);
+  const isLoading = useSelector(getLoadingStatus);
 
   useEffect(() => {
-    getJoke();
-  }, []);
+    dispatch(getJokeRequest());
+  }, [dispatch]);
 
   return (
     <>
       <Header />
       <Wrapper className="joke-wrapper">
-        {jokeData && <JokeCard jokeData={jokeData} loading={isLoading} />}
-        <Button onClick={getJoke}>One more</Button>
+        {jokeData && <JokeCard jokeData={jokeData} isLoading={isLoading} />}
+        {/* <Button onClick={getJoke}>One more</Button> */}
       </Wrapper>
     </>
   );
