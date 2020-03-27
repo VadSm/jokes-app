@@ -21,7 +21,7 @@ const JokeContainer = () => {
     <>
       <Header />
       <Wrapper className="joke-wrapper">
-        {jokeData && <JokeCard jokeData={jokeData} isLoading={isLoading} />}
+        <JokeCard jokeData={jokeData} isLoading={isLoading} />
         {/* <Button onClick={getJoke}>One more</Button> */}
       </Wrapper>
     </>
