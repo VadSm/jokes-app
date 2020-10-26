@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jokes-app/static/css/main.fbc5afa8.chunk.css",
+    "main.js": "/jokes-app/static/js/main.cc11baab.chunk.js",
+    "main.js.map": "/jokes-app/static/js/main.cc11baab.chunk.js.map",
+    "runtime-main.js": "/jokes-app/static/js/runtime-main.6c05cc91.js",
+    "runtime-main.js.map": "/jokes-app/static/js/runtime-main.6c05cc91.js.map",
+    "static/js/2.60a21a3d.chunk.js": "/jokes-app/static/js/2.60a21a3d.chunk.js",
+    "static/js/2.60a21a3d.chunk.js.map": "/jokes-app/static/js/2.60a21a3d.chunk.js.map",
+    "index.html": "/jokes-app/index.html",
+    "precache-manifest.bfb601f803e6404c4599d8fe441018a4.js": "/jokes-app/precache-manifest.bfb601f803e6404c4599d8fe441018a4.js",
+    "service-worker.js": "/jokes-app/service-worker.js",
+    "static/css/main.fbc5afa8.chunk.css.map": "/jokes-app/static/css/main.fbc5afa8.chunk.css.map",
+    "static/js/2.60a21a3d.chunk.js.LICENSE.txt": "/jokes-app/static/js/2.60a21a3d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c05cc91.js",
+    "static/js/2.60a21a3d.chunk.js",
+    "static/css/main.fbc5afa8.chunk.css",
+    "static/js/main.cc11baab.chunk.js"
+  ]
+}
